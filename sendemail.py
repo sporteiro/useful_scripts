@@ -39,4 +39,3 @@ def send_email(message=sys.argv[1]):
     except:
         print('SEND EMAIL: email cannot be send')
 send_email()
-#testing
