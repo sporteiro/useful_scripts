@@ -1,0 +1,12 @@
+		FROM ubuntu:18.04
+		ENV LC_ALL=C.UTF-8
+		ENV LANG=C.UTF-8
+		RUN apt-get update && \
+			apt-get install -yq \
+			python \
+			python-pip
+
+		RUN pip install python-telegram-bot
+		RUN pip install requests
+
+		RUN useradd -ms /bin/bash  administrador
