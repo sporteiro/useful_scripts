@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #Sebastian Porteiro 2017-19 jporteiro@iter.es
 #Listen to PORT_NUMBER and send a Telegram message using bot
 import sys, os
@@ -48,7 +49,7 @@ class httpServerBot(BaseHTTPRequestHandler):
                 userAndPassword = userAndPassword.encode('utf8')
                 userAndPassword = hashlib.sha224(userAndPassword).hexdigest()
                 if userAndPassword == TOKEN:
-                    self.run_bot('telegram_http.py: ' + str(post_body['msg']))
+                    self.run_bot('telegram_http.py: ' + str(post_body['msg'].encode('utf8')))
                     contents = 'Message has been sent'
                 else:
                     contents = 'Not Authorized'
