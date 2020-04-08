@@ -31,14 +31,14 @@ def send_email(message=sys.argv[1]):
         msg['From'] = settings['email_from']
         msg['To'] = str('"'+settings['email_to']+'"')
         msg['Subject'] = "Email from: " + hostname
-		try:
-			part = MIMEBase('application', "octet-stream")
-			part.set_payload(open(sys.argv[2], "rb").read())
-			encoders.encode_base64(part)
-			part.add_header('Content-Disposition', 'attachment; filename='+str(sys.argv[2]))
-			msg.attach(part)
-		except:
-			pass
+        try:
+            part = MIMEBase('application', "octet-stream")
+            part.set_payload(open(sys.argv[2], "rb").read())
+            encoders.encode_base64(part)
+            part.add_header('Content-Disposition', 'attachment; filename='+str(sys.argv[2]))
+            msg.attach(part)
+        except:
+            pass
         email_to_list = settings['email_to'].split(",")
         body = message
         msg.attach(MIMEText(body, 'plain'))
